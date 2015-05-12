@@ -13,7 +13,7 @@
 	<div class="sixteen columns">
 		<div id="navigation">
 			<ul id="nav">
-				<li><a href="index.html">计算机1010</a></li>
+				<li><a href="index.html">${grades.name }</a></li>
 				<li><a href="photo.jsp">相册</a></li>
 				<li><a href="contacts.jsp">通讯录</a></li>
 				<li><a href="notice.jsp">活动通知</a></li>

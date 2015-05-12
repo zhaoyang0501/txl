@@ -26,6 +26,12 @@ public class MsgBoard {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Grades grades;
 	
+	public Grades getGrades() {
+		return grades;
+	}
+	public void setGrades(Grades grades) {
+		this.grades = grades;
+	}
 	public Long getId() {
 		return id;
 	}

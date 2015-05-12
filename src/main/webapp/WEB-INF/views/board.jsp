@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
@@ -79,47 +81,17 @@
 	<div class="comments-sec">
 		
 		<ol class="commentlist">
-			<li>
-				<div class="comments">
-					<div class="avatar"><img  style="width: 50px"  src="images/about-01.png" alt="" width="50" height="50" border="0"> </div>
-					<div class="comment-des">
-					<div class="comment-by"><strong>John Doe</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span> <span class="date">August 10, 2012</span></div>
-						<p>Maecenas dignissim euismod nunc, in commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus. Mauris a felis arcu, vitae sollicitudin mauris. Aliquam quis tellus vel massa mattis ornare et eu felis. </p>
-					</div>
-				</div>
-						 
-				<ol class="childlist">
-					<li>
+		<c:forEach items="${msgBoards }" var="bean">
+				<li style="width: 100%">
 					<div class="comments">
-										<div class="avatar"><img  style="width: 50px"  src="images/about-01.png" alt="" border="0"> </div>
+						<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
 						<div class="comment-des">
-						<div class="comment-by"><strong>Admin</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span> <span class="date">August 12, 2012</span></div>
-						<p>Dignissim euismod nunc, in commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus. Mauris a felis arcu, vitae sollicitudin mauris. Aliquam quis tellus vel massa mattis.</p>
+						<div class="comment-by"><strong>${bean.user.name }</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span><span class="date">${bean.createDate}</span></div>
+							<p>${bean.msg}</p>
 						</div>
-					</div>
-					</li>
-				</ol>		
-			</li>
-						
-			<li>
-				<div class="comments">
-					<div class="avatar"><img  style="width: 50px"  src="images/about-01.png" alt="" border="0"> </div>
-					<div class="comment-des">
-					<div class="comment-by"><strong>Kathy Brown</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span><span class="date">August 12, 2012</span></div>
-						<p>Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus</p>
-					</div>
-				</div>
-			</li>
-						
-			<li>
-				<div class="comments">
-					<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
-					<div class="comment-des">
-					<div class="comment-by"><strong>John Doe</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span><span class="date">August 12, 2012</span></div>
-						<p>Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus. Mauris a felis arcu, vitae sollicitudin mauris.</p>
-					</div>
-				 </div>
-			</li>
+					 </div>
+				</li>
+			</c:forEach>
 		 </ol>
 					 
 	</div>
@@ -128,14 +100,14 @@
 	<div class="headline no-margin"><h4>留言</h4></div>
 	<div class="form-spacer"></div>
 	<div id="contact-form">
-			<form method="post">
+			<form method="post"  action="${pageContext.request.contextPath}/saveMsgBoard">
 				<div class="field">
-					<label>留言内容: <span>*</span></label>
-					<textarea class="text textarea"></textarea>
+					<label>留言内容: </label>
+					<textarea name='msg' class="text textarea"></textarea>
 				</div>
 				
 				<div class="field">
-					<input type="button" id="send" value="留言">
+					<input type="submit" class='button color medium' value="留言">
 				</div>
 				
 			</form>

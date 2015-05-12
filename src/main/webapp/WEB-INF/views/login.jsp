@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
@@ -78,7 +80,7 @@
 <div class="container">
 	<div class="sixteen columns">
 		<div id="page-title">
-			<h2>申请班级</h2>
+			<h2>登陆</h2>
 			<div id="bolded-line"></div>
 		</div>
 
@@ -86,36 +88,34 @@
 </div>
 
 <div class="container">
-
-	<!-- Text -->
+<c:if test="${tip!=null }">
 	<div class="sixteen columns">
-		<p>同学录拥有中国领先的实名制社交网络平台，在用户数、页面浏览量、访问次数和用户花费时长等方面均占据优势地位。用户可以在这一平台上相互交流，分享信息和用户自创内容，玩在线游戏，听音乐，并享受一系列其它服务，快来加入我们吧！</p>
-		<br>
+		<div class="notification error  closeable" style="margin: 5px 0 25px 0;">
+			<p>${tip}</p>
+		</div>
 	</div>
+</c:if>
+
 
 	<!-- Contact Form -->
-	<div class="sixteen columns">
-		<div class="headline no-margin"><h4>填写班级申请表单</h4></div>
-		
-		<div class="form-spacer"></div>
+	<div class="sixteen columns " >
 		<!-- Form -->
 		<div id="contact-form">
-			<form method="post" action="${pageContext.request.contextPath}/goapply">
+			<form method="post" action="${pageContext.request.contextPath}/dologin">
 				<div class="field">
-					<label>班级名称:</label>
-					<input type="text" name="grades.name" class="text">
+					<label>用户名:</label>
+					<input type="text" name="user.name" class="text">
 				</div>
 				<div class="field">
-					<label>班级简介: </label>
-					<textarea name="grades.remark" class="text textarea"></textarea>
+					<label>密码:</label>
+					<input type="password" name="user.password" class="text">
 				</div>
 				
 				<div class="field">
-					<input  class='button color medium' type="submit"  value="提交申请">
+					<input  class='button color medium' type="submit"  value="登陆">
 				</div>
 			</form>
 		</div>
-
 </div>
 </div>
 

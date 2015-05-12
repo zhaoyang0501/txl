@@ -78,7 +78,7 @@
 <div class="container">
 	<div class="sixteen columns">
 		<div id="page-title">
-			<h2>申请班级</h2>
+			<h2>注册</h2>
 			<div id="bolded-line"></div>
 		</div>
 
@@ -86,36 +86,25 @@
 </div>
 
 <div class="container">
-
-	<!-- Text -->
-	<div class="sixteen columns">
-		<p>同学录拥有中国领先的实名制社交网络平台，在用户数、页面浏览量、访问次数和用户花费时长等方面均占据优势地位。用户可以在这一平台上相互交流，分享信息和用户自创内容，玩在线游戏，听音乐，并享受一系列其它服务，快来加入我们吧！</p>
-		<br>
-	</div>
-
 	<!-- Contact Form -->
-	<div class="sixteen columns">
-		<div class="headline no-margin"><h4>填写班级申请表单</h4></div>
-		
-		<div class="form-spacer"></div>
+	<div class="sixteen columns " >
 		<!-- Form -->
 		<div id="contact-form">
 			<form method="post" action="${pageContext.request.contextPath}/goapply">
 				<div class="field">
-					<label>班级名称:</label>
+					<label>用户名:</label>
 					<input type="text" name="grades.name" class="text">
 				</div>
 				<div class="field">
-					<label>班级简介: </label>
-					<textarea name="grades.remark" class="text textarea"></textarea>
+					<label>密码:</label>
+					<input type="text" name="grades.name" class="text">
 				</div>
 				
 				<div class="field">
-					<input  class='button color medium' type="submit"  value="提交申请">
+					<input  class='button color medium' type="submit"  value="登陆">
 				</div>
 			</form>
 		</div>
-
 </div>
 </div>
 

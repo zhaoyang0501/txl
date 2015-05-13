@@ -59,15 +59,14 @@
 <!-- Content
 ================================================== -->
 <div class="container">
-	<div class="sixteen columns">
-	
-		<!-- Page Title -->
+	<div class="fourteen columns">
 		<div id="page-title">
 			<h2>活动通知</h2>
 			<div id="bolded-line"></div>
 		</div>
-		<!-- Page Title / End -->
-
+	</div>
+	<div class="two columns">
+	<a style="float: right" href="createNotice" class="button color medium">发布</a>
 	</div>
 </div>
 

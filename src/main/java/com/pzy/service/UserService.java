@@ -28,6 +28,9 @@ public class UserService {
      public List<User> findAll() {
           return (List<User>) userRepository.findAll();
      }
+     public List<User> findByNews(Grades grades){
+  		return userRepository.findByGradesOrderByCreateDateDesc(grades);
+  	}
      public List<User> findByGrades(Grades grades){
  		return userRepository.findByGrades(grades);
  	}

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.pzy.entity.User;
+import com.pzy.entity.*;
 import com.pzy.service.UserService;
 
 @Namespace("/")
@@ -23,6 +24,7 @@ public class CenterAction extends PageAction {
 	 */
 	@Action(value = "doCenter", results = { @Result(name = "success", location = "center.jsp") })
 	public String doCenter(){
+		user.setGrades((Grades)ActionContext.getContext().getSession().get("grades"));
 		userService.save(user);
 		ActionContext.getContext().getSession().put("user", user);
 		tip="用户信息修改成功";

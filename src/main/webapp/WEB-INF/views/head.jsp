@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+if(request.getSession().getAttribute("user")==null)
+response.sendRedirect("login");
+%>  
+    
 <div id="header">
 		<!-- Logo -->
 		<div class="sixteen columns">
@@ -13,11 +18,12 @@
 	<div class="sixteen columns">
 		<div id="navigation">
 			<ul id="nav">
-				<li><a href="index.html">${grades.name }</a></li>
-				<li><a href="photo.jsp">相册</a></li>
-				<li><a href="contacts.jsp">通讯录</a></li>
-				<li><a href="notice.jsp">活动通知</a></li>
-				<li><a href="board.jsp">留言板</a></li>
+				<li><a href="grades">${grades.name }</a></li>
+				<li><a href="photo">相册</a></li>
+				<li><a href="contact">通讯录</a></li>
+				<li><a href="notice">活动通知</a></li>
+				<li><a href="board">留言板</a></li>
+					<li><a href="center">个人中心</a></li>
 			</ul>
 		</div> 
 		<div class="clear"></div>

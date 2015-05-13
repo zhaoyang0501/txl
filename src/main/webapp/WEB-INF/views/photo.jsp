@@ -67,15 +67,14 @@
 ================================================== -->
 <div class="container">
 
-	<div class="sixteen columns">
-	
-		<!-- Page Title -->
+	<div class="fourteen columns">
 		<div id="page-title">
 			<h2>班级相册</h2>
 			<div id="bolded-line"></div>
 		</div>
-		<!-- Page Title / End -->
-
+	</div>
+	<div class="two columns">
+	<a style="float: right" href="uploadPhoto" class="button color medium">上传</a>
 	</div>
 </div>
 <div class="container">
@@ -89,70 +88,16 @@
 </div>
 <div class="container">
 	<!-- Portfolio Content -->
-	<div id="portfolio-wrapper" class="isotope" style="position: relative; overflow: hidden; ">
-			
-		<!-- 1/4 Column -->
-		<div class="four columns portfolio-item interior-design architecture real-estate isotope-item" style="position: absolute; left: 0px; top: 0px;">
-			<div class="picture"><a href="images/portfolio/portoflio-01-large.jpg" rel="image" title="Maritime Details"><img src="http://t12.baidu.com/it/u=4224136820,222817142&fm=32&s=CE73A55661C252F05E652DCE010070E2&w=623&h=799&img.JPEG" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
+	<div>
+	<c:forEach items="${photos }" var="bean">
+		<div class="four columns ">
+			<div class="picture"><a href="upload/${bean.filePath }" rel="image" title="Maritime Details"><img src="upload/${bean.filePath }" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
 			<div class="item-description alt">
-				<h5><a href="single_project.html">XX毕业照片</a></h5>
-				<p>拍摄于2014年</p>
+				<h5><a href="#">${bean.name }</a></h5>
+				<p>上传于${bean.createDate }</p>
 			</div>
 		</div>
-
-	<div class="four columns portfolio-item interior-design architecture real-estate isotope-item" style="position: absolute; left: 0px; top: 0px;">
-			<div class="picture"><a href="images/portfolio/portoflio-01-large.jpg" rel="image" title="Maritime Details"><img src="http://t12.baidu.com/it/u=4224136820,222817142&fm=32&s=CE73A55661C252F05E652DCE010070E2&w=623&h=799&img.JPEG" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
-			<div class="item-description alt">
-				<h5><a href="single_project.html">XX毕业照片</a></h5>
-				<p>拍摄于2014年</p>
-			</div>
-		</div>
-		
-		<div class="four columns portfolio-item interior-design architecture real-estate isotope-item" style="position: absolute; left: 0px; top: 0px;">
-			<div class="picture"><a href="images/portfolio/portoflio-01-large.jpg" rel="image" title="Maritime Details"><img src="http://t12.baidu.com/it/u=4224136820,222817142&fm=32&s=CE73A55661C252F05E652DCE010070E2&w=623&h=799&img.JPEG" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
-			<div class="item-description alt">
-				<h5><a href="single_project.html">XX毕业照片</a></h5>
-				<p>拍摄于2014年</p>
-			</div>
-		</div>
-		
-		<div class="four columns portfolio-item interior-design architecture real-estate isotope-item" style="position: absolute; left: 0px; top: 0px;">
-			<div class="picture"><a href="images/portfolio/portoflio-01-large.jpg" rel="image" title="Maritime Details"><img src="http://t12.baidu.com/it/u=4224136820,222817142&fm=32&s=CE73A55661C252F05E652DCE010070E2&w=623&h=799&img.JPEG" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
-			<div class="item-description alt">
-				<h5><a href="single_project.html">XX毕业照片</a></h5>
-				<p>拍摄于2014年</p>
-			</div>
-		</div>
-		
-		
-		<div class="four columns portfolio-item interior-design architecture real-estate isotope-item" style="position: absolute; left: 0px; top: 0px;">
-			<div class="picture"><a href="images/portfolio/portoflio-01-large.jpg" rel="image" title="Maritime Details"><img src="http://t12.baidu.com/it/u=4224136820,222817142&fm=32&s=CE73A55661C252F05E652DCE010070E2&w=623&h=799&img.JPEG" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
-			<div class="item-description alt">
-				<h5><a href="single_project.html">XX毕业照片</a></h5>
-				<p>拍摄于2014年</p>
-			</div>
-		</div>
-		
-		
-		<div class="four columns portfolio-item interior-design architecture real-estate isotope-item" style="position: absolute; left: 0px; top: 0px;">
-			<div class="picture"><a href="images/portfolio/portoflio-01-large.jpg" rel="image" title="Maritime Details"><img src="http://t12.baidu.com/it/u=4224136820,222817142&fm=32&s=CE73A55661C252F05E652DCE010070E2&w=623&h=799&img.JPEG" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
-			<div class="item-description alt">
-				<h5><a href="single_project.html">XX毕业照片</a></h5>
-				<p>拍摄于2014年</p>
-			</div>
-		</div>
-		
-		
-		<div class="four columns portfolio-item interior-design architecture real-estate isotope-item" style="position: absolute; left: 0px; top: 0px;">
-			<div class="picture"><a href="images/portfolio/portoflio-01-large.jpg" rel="image" title="Maritime Details"><img src="http://t12.baidu.com/it/u=4224136820,222817142&fm=32&s=CE73A55661C252F05E652DCE010070E2&w=623&h=799&img.JPEG" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
-			<div class="item-description alt">
-				<h5><a href="single_project.html">XX毕业照片</a></h5>
-				<p>拍摄于2014年</p>
-			</div>
-		</div>
-		
-		
-			
+	</c:forEach>
 	</div>
 	<!-- End Portfolio Content -->
 		

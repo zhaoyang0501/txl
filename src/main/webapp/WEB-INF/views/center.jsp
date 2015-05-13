@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
@@ -94,7 +96,7 @@
 					<input type="text" name="user.id" class="text" value="${user.id }" readonly="readonly">
 				</div>
 				<div class="field">
-					<label>用户名:</label>
+					<label>姓名:</label>
 					<input type="text" name="user.name" class="text" value="${user.name }">
 				</div>
 				<div class="field">
@@ -105,10 +107,7 @@
 					<label>地址:</label>
 					<input type="text" name="user.address" class="text" value="${user.address }">
 				</div>
-				<div class="field">
-					<label>生日:</label>
-					<input type="text" name="user.birthDay" class="text" value="${user.birthDay }">
-				</div>
+				
 				<div class="field">
 					<label>电子邮件:</label>
 					<input type="text" name="user.email" class="text" value="${user.email }">

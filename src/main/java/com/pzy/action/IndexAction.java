@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -29,6 +30,7 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	private Grades grades;
 	private List<News> newss;
 	private List<Grades> gradess;
+	private List<User> users;
 	private User user;
 	private String tip;
 	@Autowired
@@ -52,15 +54,22 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	public String login() throws Exception {
 		return SUCCESS;
 	}
-	
+	@Action(value = "grades", results = { @Result(name = "success", location = "/WEB-INF/views/grades.jsp") })
+	public String grades() throws Exception {
+		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
+		this.grades=grades;
+		users=userService.findByNews(grades);
+		return SUCCESS;
+	}
 	 @Action(value = "dologin", 
-	    		results = { @Result(name = "success" , location = "class.jsp") ,
+	    		results = { @Result(name = "success" , location = "grades.jsp") ,
 	    					@Result(name = "login", location = "/WEB-INF/views/login.jsp") })  
 	    public String dologin() throws Exception { 
 	    	User loginuser=userService.login(user.getName(), user.getPassword());
 	    	if(loginuser!=null){
 	    		session.put("user",loginuser );
 	    		session.put("grades",loginuser.getGrades() );
+	    		users=userService.findByNews((Grades) ServletActionContext.getRequest().getSession().getAttribute("grades"));
 	            return SUCCESS; 
 	    	}
 	    	else{
@@ -120,5 +129,11 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	}
 	public Map<String, Object> getSession() {
 		return session;
+	}
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 }

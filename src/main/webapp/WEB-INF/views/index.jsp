@@ -67,6 +67,7 @@
 			<ul id="nav">
 				<li><a href="index.html">首页</a></li>
 				<li><a href="apply">申请班级</a></li>
+				<li style="float: right"><a href="login">登陆</a></li>
 			</ul>
 		</div> 
 		<div class="clear"></div>

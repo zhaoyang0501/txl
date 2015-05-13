@@ -1,5 +1,7 @@
 package com.pzy.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "t_notice")
+@Table(name = "t_photo")
 public class Photo {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +21,21 @@ public class Photo {
 	private String remark;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private  Grades grades;
-	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private User user;
+	private Date createDate;
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Long getId() {
 		return id;
 	}

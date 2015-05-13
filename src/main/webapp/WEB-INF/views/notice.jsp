@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
@@ -43,20 +45,13 @@
 
 <!-- Wrapper Start -->
 <div id="wrapper">
-
-
 <!-- Header
 ================================================== -->
 
 <!-- 960 Container -->
 <div class="container ie-dropdown-fix">
-
-	<!-- Header -->
 	<%@include file="./head.jsp" %>
 	<!-- Header / End -->
-	
-	
-
 </div>
 <!-- 960 Container / End -->
 
@@ -77,56 +72,33 @@
 </div>
 
 <div class="container">
-	
-
+<c:if test="${tip!=null }">
+	<div class="sixteen columns">
+		<div class="notification success  closeable" style="margin: 5px 0 25px 0;">
+			<p>${tip}</p>
+		</div>
+	</div>
+</c:if>
+</div>
+<div class="container">
 	<div class="sixteen  columns">
-	<!-- Post -->
-	<div class="post">
-		<div class="clear"></div>
-		<a href="#" class="post-icon video"></a>
-		<div class="post-content">
-			<div class="post-title"><h2><a href="blog_post.html">这是一个公告通知</a></h2></div>
-			<div class="post-meta"><span><i class="mini-ico-calendar"></i>On 10 August, 2012</span> <span><i class="mini-ico-user"></i>By <a href="#">admin</a></span> <span><i class="mini-ico-comment"></i></span></div>
-			<div class="post-description">
-				<p>下一级同学聚会定于2015-12 地点在中南海</p>
+		<c:forEach items="${notices }" var="bean">
+			<div class="post">
+				<div class="clear"></div>
+				<a href="#" class="post-icon video"></a>
+				<div class="post-content">
+					<div class="post-title"><h2><a href="#">${bean.title }</a></h2></div>
+					<div class="post-meta"><span><i class="mini-ico-calendar"></i>${bean.createDate }</span> <span><i class="mini-ico-user"></i>By <a href="#">${bean.user.name }</a></span> <span><i class="mini-ico-comment"></i></span></div>
+					<div class="post-description">
+						<p>${bean.context }</p>
+					</div>
+					<a class="post-entry" href="blog_post.html">Continue Reading</a>
+				</div>
 			</div>
-			<a class="post-entry" href="blog_post.html">Continue Reading</a>
-		</div>
+		</c:forEach>
 	</div>
-	
-	<!-- Post -->
-	<div class="post">
-		<div class="clear"></div>
-		<a href="#" class="post-icon video"></a>
-		<div class="post-content">
-			<div class="post-title"><h2><a href="blog_post.html">这是一个公告通知</a></h2></div>
-			<div class="post-meta"><span><i class="mini-ico-calendar"></i>On 10 August, 2012</span> <span><i class="mini-ico-user"></i>By <a href="#">admin</a></span> <span><i class="mini-ico-comment"></i></span></div>
-			<div class="post-description">
-				<p>下一级同学聚会定于2015-12 地点在中南海</p>
-			</div>
-			<a class="post-entry" href="blog_post.html">Continue Reading</a>
-		</div>
-	</div>
-	
-	<!-- Post -->
-	<div class="post">
-		<div class="clear"></div>
-		<a href="#" class="post-icon video"></a>
-		<div class="post-content">
-			<div class="post-title"><h2><a href="blog_post.html">这是一个公告通知</a></h2></div>
-			<div class="post-meta"><span><i class="mini-ico-calendar"></i>On 10 August, 2012</span> <span><i class="mini-ico-user"></i>By <a href="#">admin</a></span> <span><i class="mini-ico-comment"></i></span></div>
-			<div class="post-description">
-				<p>下一级同学聚会定于2015-12 地点在中南海下一级同学聚会定于2015-12 地点在中南海下一级同学聚会定于2015-12 地点在中南海</p>
-			</div>
-			<a class="post-entry" href="blog_post.html">Continue Reading</a>
-		</div>
-	</div>
-</div>
 	<!-- End Portfolio Content -->
-		
 </div>
-
-
 </div>
 	<%@include file="./foot.jsp" %>
 

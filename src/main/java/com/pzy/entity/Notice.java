@@ -24,6 +24,14 @@ public class Notice {
 	private Date createDate;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Grades grades;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private User user;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Grades getGrades() {
 		return grades;
 	}

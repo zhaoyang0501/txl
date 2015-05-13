@@ -3,56 +3,63 @@ package com.pzy.action;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 
+import com.pzy.entity.Grades;
 import com.pzy.entity.Notice;
+import com.pzy.entity.User;
 import com.pzy.service.NoticeService;
 
-@Namespace("/notice")
+@Namespace("/")
 @ParentPackage("json-default") 
 public class NoticeAction extends PageAction {
-	private Date start;
-	private Date end;
 	private List<Notice> notices;
+	private Notice notice;
+	private String tip;
 	@Autowired
 	private NoticeService noticeService;
-
-	@Action(value = "list", results = { @Result(name = "success", type = "json",params={"ignoreHierarchy","false"}) })  
-	public String list() {
-		int pageNumber = (int) (this.getIDisplayStart() / this.getIDisplayLength()) + 1;
-		int pageSize =  this.getIDisplayLength();
-		Page<Notice> list = noticeService.findAll(pageNumber, pageSize,start,end);
-		this.getResultMap().put("aaData", list.getContent());
-		this.getResultMap().put("iTotalRecords", list.getTotalElements());
-		this.getResultMap().put("iTotalDisplayRecords", list.getTotalElements());
-		this.getResultMap().put("sEcho", getSEcho());
+	public String execute() throws Exception {
+		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
+		notices=noticeService.findByGrades(grades);
+		return SUCCESS;
+	}
+	@Action(value = "createNotice", results = { @Result(name = "success", location = "/WEB-INF/views/create_notice.jsp") })
+	public String createNotice() throws Exception {
+		return SUCCESS;
+	}
+	@Action(value = "doCreateNotice", results = { @Result(name = "success", location = "/WEB-INF/views/notice.jsp") })
+	public String doCreateNotice() throws Exception {
+		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
+		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
+		notice.setCreateDate(new Date());
+		notice.setGrades(grades);
+		notice.setUser(user);
+		noticeService.save(notice);
+		this.setTip("公告发布成功！");
+		notices=noticeService.findByGrades(grades);
 		return SUCCESS;
 	}
 	public List<Notice> getNotices() {
 		return notices;
 	}
-
 	public void setNotices(List<Notice> notices) {
 		this.notices = notices;
 	}
-
-
-	public Date getStart() {
-		return start;
+	public Notice getNotice() {
+		return notice;
 	}
-	public void setStart(Date start) {
-		this.start = start;
+	public void setNotice(Notice notice) {
+		this.notice = notice;
 	}
-	public Date getEnd() {
-		return end;
+	public String getTip() {
+		return tip;
 	}
-	public void setEnd(Date end) {
-		this.end = end;
+	public void setTip(String tip) {
+		this.tip = tip;
 	}
-
 }

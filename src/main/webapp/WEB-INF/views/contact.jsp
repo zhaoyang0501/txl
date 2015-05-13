@@ -85,75 +85,14 @@
 					<th>邮件</th>
 					<th>地址</th>
 				</tr>
-
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-				<tr>
-					<td>温家宝</td>
-					<td>010-9877777</td>
-					<td>XXXx@qq.com</td>
-					<td>北京市XX区XX街道</td>
-				</tr>
-
+				<c:forEach var="bean" items="${users }">
+								<tr>
+									<td>${user.name }</td>
+									<td>${user.tel }</td>
+									<td>${user.email }</td>
+									<td>${user.address }</td>
+								</tr>
+				</c:forEach>
 			</tbody></table>
 	<!-- End Portfolio Content -->
 		

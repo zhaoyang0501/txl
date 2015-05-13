@@ -16,6 +16,8 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import com.pzy.entity.Grades;
+import com.pzy.entity.MsgBoard;
 import com.pzy.entity.Notice;
 import com.pzy.repository.NoticeRepository;
 
@@ -23,7 +25,10 @@ import com.pzy.repository.NoticeRepository;
 public class NoticeService {
 	@Autowired
 	private NoticeRepository noticeRepository;
-
+	
+	public List<Notice> findByGrades(Grades grades){
+		return noticeRepository.findByGrades(grades);
+	}
 	public List<Notice> findAll() {
 		return (List<Notice>) noticeRepository.findAll();
 	}

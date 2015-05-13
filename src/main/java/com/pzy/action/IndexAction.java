@@ -65,7 +65,7 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	    		results = { @Result(name = "success" , location = "grades.jsp") ,
 	    					@Result(name = "login", location = "/WEB-INF/views/login.jsp") })  
 	    public String dologin() throws Exception { 
-	    	User loginuser=userService.login(user.getName(), user.getPassword());
+	    	User loginuser=userService.login(user.getId(), user.getPassword());
 	    	if(loginuser!=null){
 	    		session.put("user",loginuser );
 	    		session.put("grades",loginuser.getGrades() );
@@ -89,6 +89,9 @@ public class IndexAction extends ActionSupport implements SessionAware{
 		grades.setCreateDate(new Date());
 		grades.setState("未审核");
 		gradesService.save(grades);
+		newss=newsService.findTop3();
+		gradess=gradesService.findTop4();
+		tip="成功提交申请,请等待管理员审核";
 		return SUCCESS;
 	}
 	

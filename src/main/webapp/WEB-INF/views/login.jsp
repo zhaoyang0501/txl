@@ -103,8 +103,8 @@
 		<div id="contact-form">
 			<form method="post" action="${pageContext.request.contextPath}/dologin">
 				<div class="field">
-					<label>用户名:</label>
-					<input type="text" name="user.name" class="text">
+					<label>学号:</label>
+					<input type="text" name="user.id" class="text">
 				</div>
 				<div class="field">
 					<label>密码:</label>

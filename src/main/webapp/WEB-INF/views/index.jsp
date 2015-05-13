@@ -83,6 +83,14 @@
 		<!-- Headline -->
 		<div class="headline no-margin"><h3>最新公告</h3></div>
 	</div>
+	
+	<c:if test="${tip!=null }">
+	<div class="sixteen columns">
+		<div class="notification success  closeable" style="margin: 5px 0 25px 0;">
+			<p>${tip}</p>
+		</div>
+	</div>
+</c:if>
 <div class="sixteen  columns">
 	<c:forEach items="${newss}" var="bean"> 
 	<div class="post">

@@ -30,6 +30,13 @@ public class User implements Serializable {
 	private String email;
 	private Date createDate;
 	private Date birthDay;
+	private String role;
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Grades grades;
 

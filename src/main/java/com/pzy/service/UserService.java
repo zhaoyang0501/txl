@@ -50,17 +50,17 @@ public class UserService {
                Page<User> result = (Page<User>) userRepository.findAll(spec, pageRequest);
                return result;
      }
-     public void delete(Long id){
+     public void delete(String id){
           userRepository.delete(id);
      }
-     public User find(Long id){
+     public User find(String id){
     	  return userRepository.findOne(id);
      }
      public void save(User User){
     	 userRepository.save(User);
      }
-     public User login(String userName,String password){
-    	 List<User> users=userRepository.findByNameAndPassword(userName,password);
+     public User login(String id,String password){
+    	 List<User> users=userRepository.findByIdAndPassword(id,password);
     	 return users.size()==0?null:users.get(0);
      }
 }

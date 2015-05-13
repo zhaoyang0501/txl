@@ -2,7 +2,7 @@ jQuery.adminUser = {
 		userDataTable:null,
 		initSearchDataTable : function() {
 			if (this.userDataTable == null) {
-				this.userDataTable = $('#dt_user_view').dataTable({
+				this.userDataTable = $('#dt_table_view').dataTable({
 					"sDom" : "<'row-fluid'<'span6'l>r>t<'row-fluid'<'span6'i><'span6'p>>",
 					"sPaginationType" : "bootstrap",
 					"oLanguage" : {
@@ -55,24 +55,28 @@ jQuery.adminUser = {
 					}, {
 						"mDataProp" : "password"
 					}, {
-						"mDataProp" : "nickname"
+						"mDataProp" : "address"
 					}, {
-						"mDataProp" : "sex"
+						"mDataProp" : "tel"
+					}, {
+						"mDataProp" : "grades.name"
 					}, {
 						"mDataProp" : "email"
 					}, {
-						"mDataProp" : "address"
+						"mDataProp" : "createDate"
 					}, {
-						"mDataProp" : "job"
+						"mDataProp" : "role"
 					},{
 						"mDataProp" : ""
 					}],
 					"aoColumnDefs" : [
 						{
-							'aTargets' : [8],
+							'aTargets' : [9],
 							'fnRender' : function(oObj, sVal) {
 								return "<button class=\"btn2 btn-info\" onclick=\"$.adminUser.showEdit("+oObj.aData.id+")\"><i class=\"icon-pencil\"></i>修改</button>"+
-								 "  <button class=\"btn2 btn-info\" onclick=\"$.adminUser.deleteUser("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>";
+								 
+								"  <button class=\"btn2 btn-info\" onclick=\"$.adminUser.deleteUser("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>" +
+								"<button class=\"btn2 btn-info\" onclick=\"$.adminUser.showEdit("+oObj.aData.id+")\"><i class=\"icon-pencil\"></i>设为班长</button>";
 							}
 						},
 					 {
@@ -110,10 +114,9 @@ jQuery.adminUser = {
 		},
 		showUserAddModal: function(id){
 			$("#userid").val(id);
-			$('#user_edit_modal').modal({
+			$('#_modal').modal({
 			});
-			$("#user_modal_header_label").text("新增用户信息");
-			$("#user_edit_modal").modal('show');
+			$("#_modal").modal('show');
 		},
 		showEdit: function (id){
 			$("#userid").val(id);

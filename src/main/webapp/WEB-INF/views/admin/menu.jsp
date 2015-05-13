@@ -25,13 +25,9 @@
 		<div class="left-secondary-nav tab-content" >
 			<div class="tab-pane active dailyreport" id="dailyreport">
 				<ul id="nav" class="accordion-nav" >
-					<li><a href="${pageContext.request.contextPath}/admin/category/index"><i class="icon-pencil"></i> 车型管理</a></li>
-					<li><a href="${pageContext.request.contextPath}/admin/car/index"><i class="icon-upload"></i> 车辆管理 </a></li>
-					<li><a href="${pageContext.request.contextPath}/admin/load/index"><i class="icon-zoom-in"></i> 道路管理</a></li>
-					<li><a href="${pageContext.request.contextPath}/admin/badrecord/index"><i class="icon-zoom-in"></i> 违章管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/grades/index"><i class="icon-upload"></i> 班级审批 </a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/user/index"><i class="icon-zoom-in"></i> 学生管理</a></li>
 					<li><a href="${pageContext.request.contextPath}/admin/news/index"><i class="icon-zoom-in"></i> 新闻管理</a></li>
-					<li><a href="${pageContext.request.contextPath}/admin/accident/index"><i class="icon-zoom-in"></i> 事故管理</a></li>
-					<li><a href="${pageContext.request.contextPath}/admin/notice/index"><i class="icon-zoom-in"></i> 公告管理</a></li>
 				</ul>
 			</div>
 		</div>

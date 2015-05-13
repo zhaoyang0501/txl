@@ -73,9 +73,11 @@
 			<div id="bolded-line"></div>
 		</div>
 	</div>
+	<c:if test="${user.role=='班长' }">
 	<div class="two columns">
 	<a style="float: right" href="uploadPhoto" class="button color medium">上传</a>
 	</div>
+	</c:if>
 </div>
 <div class="container">
 	<c:if test="${tip!=null }">

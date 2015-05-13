@@ -69,9 +69,11 @@
 			<div id="bolded-line"></div>
 		</div>
 	</div>
+	<c:if test="${user.role=='班长' }">
 	<div class="two columns">
 	<a style="float: right" href="registerUser" class="button color medium">注册同学</a>
 	</div>
+	</c:if>
 </div>
 
 <div class="container">

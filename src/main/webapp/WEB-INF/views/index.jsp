@@ -56,7 +56,7 @@
 		<!-- Logo -->
 		<div class="sixteen columns">
 			<div id="logo">
-				<a href="#"><img src="images/logo.png" alt="logo" /></a>
+				<a href="#"><img src="images/logo1.jpg" alt="logo" style="height: 114px" /></a>
 				<div id="tagline">你的同学都在这里，快加入我们吧！</div>
 				<div class="clear"></div>
 			</div>

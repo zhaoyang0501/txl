@@ -10,35 +10,33 @@
 	
 		<!-- About -->
 		<div class="four columns">
-			<div class="footer-headline"><h4>About Us</h4></div>
-			<p>Lorem sequat ipsum dolor lorem sit amet, consectetur adipiscing dolor elit. Aenean nisl orci, condimentum.</p>
-			<p>Consectetur adipiscing elit aeneane lorem lipsum, condimentum ultrices consequat eu, vehicula mauris lipsum adipiscing lipsum aenean orci lorem.</p>
+			<div class="footer-headline"><h4>关于我们</h4></div>
+			<p>开发者：XXXx</p>
+			<p></p>
 		</div>
 		
 		<!-- Useful Links -->
 		<div class="four columns">
-			<div class="footer-headline"><h4>Useful Links</h4></div>
+			<div class="footer-headline"><h4>链接</h4></div>
 			<ul class="links-list">
-				<li><a href="#">Service Updates</a></li>
-				<li><a href="#">Community Forum</a></li>
-				<li><a href="#">Help Desk</a></li>
-				<li><a href="#">Terms of Use</a></li>
-				<li><a href="#">Validate License</a></li>
-				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Knowledgebase</a></li>
+				<li><a href="#">江南大学</a></li>
+				
 			</ul>
 		</div>
 		
 		<!-- Photo Stream -->
 		<div class="four columns">
-			<div class="footer-headline"><h4>Photo Stream</h4></div>
+			<div class="footer-headline"><h4>照片</h4></div>
 			
 		</div>
 		
 		<!-- Latest Tweets -->
 		<div class="four columns">
-			<div class="footer-headline"><h4>Latest Tweets</h4></div>
-			
+			<div class="footer-headline"><h4>联系我们</h4></div>
+			<ul class="links-list">
+				<li><a href="#">电话：010-111111</a></li>
+				<li><a href="#">email：222@126.com</a></li>
+			</ul>
 			<div class="clear"></div>
 		</div>
 

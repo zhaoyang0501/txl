@@ -86,10 +86,31 @@
 					<div class="comments">
 						<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
 						<div class="comment-des">
-						<div class="comment-by"><strong>${bean.user.name }</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span><span class="date">${bean.createDate}</span></div>
+						<div class="comment-by"><strong>${bean.user.name }</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">回复</a></span><span class="date">${bean.createDate}</span></div>
 							<p>${bean.msg}</p>
 						</div>
 					 </div>
+					 <ol class="childlist">
+						<li style="width: 100%">
+						<div class="comments">
+							<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
+							<div class="comment-des">
+							<div class="comment-by"><strong>胡景涛</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">回复</a></span> <span class="date">${bean.createDate}</span></div>
+							<p>测试</p>
+							</div>
+						</div>
+						</li>
+						<li style="width: 100%">
+						<div class="comments">
+							<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
+							<div class="comment-des">
+							<div class="comment-by"><strong>胡景涛</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">回复</a></span> <span class="date">${bean.createDate}</span></div>
+							<p>测试33</p>
+							</div>
+						</div>
+						</li>
+					</ol>
+					 
 				</li>
 			</c:forEach>
 		 </ol>

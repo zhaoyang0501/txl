@@ -19,6 +19,16 @@ public class MsgBoardService {
 			msgBoardRepository.save(msgBoard);
 		}
 		public List<MsgBoard> findByGrades(Grades grades){
-			return msgBoardRepository.findByGrades(grades);
+			List<MsgBoard> list= msgBoardRepository.findByGrades(grades);
+			this.addSubMsg(list);
+			return list;
 		}
+		private void addSubMsg( List<MsgBoard> list){
+			if(list!=null&&list.size()!=0){
+				for(MsgBoard bean:list){
+					bean.setSubMsg(msgBoardRepository.findByReplyfor(bean));
+				}
+			}
+		}
+		
 }

@@ -21,6 +21,7 @@ import com.pzy.service.MsgBoardService;
 public class BoardAction extends ActionSupport {
 	private String msg;
 	private List<MsgBoard> msgBoards;
+	private MsgBoard replyfor;
 	@Autowired
 	private MsgBoardService msgBoardService;
 	public String execute() throws Exception {
@@ -37,6 +38,8 @@ public class BoardAction extends ActionSupport {
 		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
 		bean.setUser(user);
 		bean.setGrades(grades);
+		if(replyfor!=null)
+			bean.setReplyfor(replyfor);
 		msgBoardService.save(bean);
 		return SUCCESS;
 	}
@@ -52,5 +55,11 @@ public class BoardAction extends ActionSupport {
 	}
 	public void setMsgBoards(List<MsgBoard> msgBoards) {
 		this.msgBoards = msgBoards;
+	}
+	public MsgBoard getReplyfor() {
+		return replyfor;
+	}
+	public void setReplyfor(MsgBoard replyfor) {
+		this.replyfor = replyfor;
 	}
 }

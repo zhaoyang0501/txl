@@ -122,6 +122,7 @@
 	<div class="form-spacer"></div>
 	<div id="contact-form">
 			<form method="post"  action="${pageContext.request.contextPath}/saveMsgBoard">
+			<input type="hidden" name="replyfor.id" value="${replyfor.id }">
 				<div class="field">
 					<label>留言内容: </label>
 					<textarea name='msg' class="text textarea"></textarea>

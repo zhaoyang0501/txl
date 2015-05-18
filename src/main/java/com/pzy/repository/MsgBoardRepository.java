@@ -8,5 +8,6 @@ import com.pzy.entity.Grades;
 import com.pzy.entity.MsgBoard;
 public interface MsgBoardRepository extends PagingAndSortingRepository<MsgBoard, Long>,JpaSpecificationExecutor<MsgBoard>{
 	public List<MsgBoard> findByGrades(Grades grades);
+	public List<MsgBoard> findByReplyfor(MsgBoard reply);
 }
 

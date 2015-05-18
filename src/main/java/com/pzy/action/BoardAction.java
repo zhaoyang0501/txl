@@ -38,8 +38,8 @@ public class BoardAction extends ActionSupport {
 		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
 		bean.setUser(user);
 		bean.setGrades(grades);
-		if(replyfor!=null)
-			bean.setReplyfor(replyfor);
+		if(replyfor.getId()!=null)
+			bean.setReplyfor(msgBoardService.findOne(replyfor.getId()));
 		msgBoardService.save(bean);
 		return SUCCESS;
 	}

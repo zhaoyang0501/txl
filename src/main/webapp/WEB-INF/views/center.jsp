@@ -96,6 +96,10 @@
 					<input type="text" name="user.id" class="text" value="${user.id }" readonly="readonly">
 				</div>
 				<div class="field">
+					<label>个人头像:</label>
+					<input type="file" name="user.headimg" class="text" value="${user.headimg }">
+				</div>
+				<div class="field">
 					<label>姓名:</label>
 					<input type="text" name="user.name" class="text" value="${user.name }">
 				</div>

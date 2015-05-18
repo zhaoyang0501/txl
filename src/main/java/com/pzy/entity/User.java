@@ -31,6 +31,13 @@ public class User implements Serializable {
 	private Date createDate;
 	private Date birthDay;
 	private String role;
+	private String headimg;
+	public String getHeadimg() {
+		return headimg;
+	}
+	public void setHeadimg(String headimg) {
+		this.headimg = headimg;
+	}
 	public String getRole() {
 		return role;
 	}

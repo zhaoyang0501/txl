@@ -15,6 +15,9 @@ public class MsgBoardService {
 		
 		@Autowired
 		private MsgBoardRepository msgBoardRepository;
+		public MsgBoard findOne(Long  id){
+			return msgBoardRepository.findOne(id);
+		}
 		public void save(MsgBoard msgBoard){
 			msgBoardRepository.save(msgBoard);
 		}

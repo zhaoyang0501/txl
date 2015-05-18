@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
@@ -82,36 +83,32 @@
 		
 		<ol class="commentlist">
 		<c:forEach items="${msgBoards }" var="bean">
-				<li style="width: 100%">
+			 <c:if test="${bean.replyfor==null}">
+			 	<li style="width: 100%">
 					<div class="comments">
 						<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
 						<div class="comment-des">
-						<div class="comment-by"><strong>${bean.user.name }</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">回复</a></span><span class="date">${bean.createDate}</span></div>
+						<div class="comment-by"><strong>${bean.user.name }</strong><span class="reply"><span style="color:#aaa">/ </span><a href="board?replyfor.id=${bean.id }">回复</a></span><span class="date">${bean.createDate}</span></div>
 							<p>${bean.msg}</p>
 						</div>
 					 </div>
-					 <ol class="childlist">
-						<li style="width: 100%">
+					 <c:if test="${fn:length(bean.subMsg)!=0 }">
+					  <ol class="childlist">
+					  <c:forEach items="${bean.subMsg }" var="sub">
+					  <li style="width: 100%">
 						<div class="comments">
 							<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
 							<div class="comment-des">
-							<div class="comment-by"><strong>胡景涛</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">回复</a></span> <span class="date">${bean.createDate}</span></div>
-							<p>测试</p>
+							<div class="comment-by"><strong>${sub.user.name }</strong><span class="reply"><span style="color:#aaa">/  <span class="date">${bean.createDate}</span></div>
+							<p>${sub.msg}</p>
 							</div>
 						</div>
 						</li>
-						<li style="width: 100%">
-						<div class="comments">
-							<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
-							<div class="comment-des">
-							<div class="comment-by"><strong>胡景涛</strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">回复</a></span> <span class="date">${bean.createDate}</span></div>
-							<p>测试33</p>
-							</div>
-						</div>
-						</li>
+					  </c:forEach>
 					</ol>
-					 
+					 </c:if>
 				</li>
+			 </c:if>
 			</c:forEach>
 		 </ol>
 					 

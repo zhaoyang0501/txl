@@ -33,14 +33,20 @@ public class CenterAction extends PageAction {
 	public String doCenter(){
 		String realpath = ServletActionContext.getServletContext().getRealPath("/upload/head");
 		System.out.println(realpath);
-		File saveImg = new File(new File(realpath), this.imgPathFileName);
-         try {
-			FileUtils.copyFile(imgPath, saveImg);
-		} catch (IOException e) {
-			e.printStackTrace();
-			return ERROR;
+		if(imgPath!=null){
+			user.setHeadimg(imgPathFileName);
+			File saveImg = new File(new File(realpath), this.imgPathFileName);
+	         try {
+				FileUtils.copyFile(imgPath, saveImg);
+			} catch (IOException e) {
+				e.printStackTrace();
+				return ERROR;
+			}
+		}else{
+			user.setHeadimg("images/web/man.png");
 		}
-        user.setHeadimg(imgPathFileName);
+		
+     
 		user.setGrades((Grades)ActionContext.getContext().getSession().get("grades"));
 		userService.save(user);
 		ActionContext.getContext().getSession().put("user", user);

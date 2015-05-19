@@ -90,14 +90,14 @@
 	<div class="sixteen columns " >
 		<!-- Form -->
 		<div id="contact-form">
-			<form method="post" action="${pageContext.request.contextPath}/doCenter">
+			<form  action="${pageContext.request.contextPath}/doCenter" enctype="multipart/form-data" method="post">
 				<div class="field">
 					<label>学号:</label>
 					<input type="text" name="user.id" class="text" value="${user.id }" readonly="readonly">
 				</div>
 				<div class="field">
 					<label>个人头像:</label>
-					<input type="file" name="user.headimg" class="text" value="${user.headimg }">
+					<input type="file" name="imgPath" class="text" value="">
 				</div>
 				<div class="field">
 					<label>姓名:</label>

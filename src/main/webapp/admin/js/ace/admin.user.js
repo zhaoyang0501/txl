@@ -73,10 +73,8 @@ jQuery.adminUser = {
 						{
 							'aTargets' : [9],
 							'fnRender' : function(oObj, sVal) {
-								return "<button class=\"btn2 btn-info\" onclick=\"$.adminUser.showEdit("+oObj.aData.id+")\"><i class=\"icon-pencil\"></i>修改</button>"+
-								 
-								"  <button class=\"btn2 btn-info\" onclick=\"$.adminUser.deleteUser("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>" +
-								" <button class=\"btn2 btn-info\" onclick=\"$.adminUser.showEdit("+oObj.aData.id+")\"><i class=\"icon-pencil\"></i>设为班长</button>";
+								return"  <button class=\"btn2 btn-info\" onclick=\"$.adminUser.deleteUser("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>" +
+								" <button class=\"btn2 btn-info\" onclick=\"$.adminUser.setLead("+oObj.aData.id+")\"><i class=\"icon-pencil\"></i>设为班长</button>";
 							}
 						},
 					 {
@@ -143,16 +141,16 @@ jQuery.adminUser = {
 		saveUser: function(id){
 			$.ajax({
     			type : "post",
-    			url : $.ace.getContextPath() + "/admin/user/update",
+    			url : $.ace.getContextPath() + "/admin/user/save",
     			data:{
     				"user.id":$("#userid").val(),
-    				"user.name":$("#name").val(),
-    				"user.nickname":$("#nickname").val(),
-    				"user.email":$("#email").val(),
-    				"user.sex":$("#sex").val(),
-    				"user.password":$("#password").val(),
-    				"user.address":$("#address").val(),
-    				"user.job":$("#job").val()
+    				"user.name":$("#username").val(),
+    				"user.password":$("#userpassword").val(),
+    				"user.address":$("#useraddress").val(),
+    				"user.grades.id":$("#usergrades").val(),
+    				"user.sex":$("#usersex").val(),
+    				"user.tel":$("#usertel").val(),
+    				"user.email":$("#useremail").val()
     			},
     			dataType : "json",
     			success : function(json) {
@@ -160,7 +158,25 @@ jQuery.adminUser = {
     					$("#user_edit_modal").modal('hide');
     					noty({"text":""+ json.resultMap.msg +"","layout":"top","type":"success","timeout":"2000"});
     					$.adminUser.initSearchDataTable();
-    				
+    				}else{
+    					noty({"text":""+ json.resultMap.msg +"","layout":"top","type":"warning"});
+    				}
+    			}
+    		});
+		},
+		setLead: function(id){
+			$.ajax({
+    			type : "post",
+    			url : $.ace.getContextPath() + "/admin/user/setLead",
+    			data:{
+    				"user.id":id
+    			},
+    			dataType : "json",
+    			success : function(json) {
+    				if(json.resultMap.state=='success'){
+    					$("#user_edit_modal").modal('hide');
+    					noty({"text":""+ json.resultMap.msg +"","layout":"top","type":"success","timeout":"2000"});
+    					$.adminUser.initSearchDataTable();
     				}else{
     					noty({"text":""+ json.resultMap.msg +"","layout":"top","type":"warning"});
     				}

@@ -93,7 +93,6 @@
 					<div class="post-description">
 						<p>${bean.context }</p>
 					</div>
-					<a class="post-entry" href="blog_post.html">Continue Reading</a>
 				</div>
 			</div>
 		</c:forEach>

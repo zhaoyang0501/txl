@@ -40,6 +40,9 @@ public class GradesService {
      public List<Grades> findAll() {
          return (List<Grades>) gradesRepository.findAll();
      }
+     public List<Grades> findAllApproved() {
+         return (List<Grades>) gradesRepository.findByState("已审核");
+     }
      public Page<Grades> findAll(final int pageNumber, final int pageSize,final String name){
          PageRequest pageRequest = new PageRequest(pageNumber - 1, pageSize, new Sort(Direction.DESC, "id"));
          Specification<Grades> spec = new Specification<Grades>() {

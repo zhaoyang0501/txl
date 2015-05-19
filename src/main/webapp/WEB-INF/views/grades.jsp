@@ -97,7 +97,7 @@
 	</div>
 	<c:forEach items="${users }" var="bean" begin="0" end="2">
 	<div class="one-third column">
-		<img src="images/web/man.png" alt="">
+		<img src="upload/head/${bean.headimg }" alt="">
 		<div class="team-name"><h5>${bean.name }</h5></div>
 		<div class="team-about"><p>${bean.remark }</p></div>
 	</div>

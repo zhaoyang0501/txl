@@ -94,28 +94,37 @@
 							<div class="control-group">
 								<label for="title" class="control-label">学号：</label>
 								<div class="controls">
-									<input type="text" id="title" placeholder="">
+									<input type="text" id="userid" placeholder="">
+								</div>
+							</div>
+							<div class="control-group">
+								<label for="title" class="control-label">密码：</label>
+								<div class="controls">
+									<input type="text" id="userpassword" placeholder="">
 								</div>
 							</div>
 							<div class="control-group">
 								<label for="title" class="control-label">姓名：</label>
 								<div class="controls">
-									<input type="text" id="title" placeholder="">
+									<input type="text" id="username" placeholder="">
 								</div>
 							</div>
 							
 							<div class="control-group">
 								<label for="title" class="control-label">地址：</label>
 								<div class="controls">
-									<input type="text" id="title" placeholder="">
+									<input type="text" id=useraddress placeholder="">
 								</div>
 							</div>
 							<div class="control-group">
 								<label for="title" class="control-label">班级：</label>
 								<div class="controls">
-									<select>
-										<option>XXX</option>
-										<option>女</option>
+									<select id='usergrades'>
+									<c:forEach items="${gradess }" var="bean">
+										<option value="${bean.id }">${bean.name }</option>
+									</c:forEach>
+									
+										
 									</select>
 								</div>
 							</div>
@@ -124,7 +133,7 @@
 							<div class="control-group">
 								<label for="title" class="control-label">性别：</label>
 								<div class="controls">
-									<select>
+									<select id='usersex'>
 										<option>男</option>
 										<option>女</option>
 									</select>
@@ -134,14 +143,14 @@
 							<div class="control-group">
 								<label for="title" class="control-label">电话：</label>
 								<div class="controls">
-									<input type="text" id="title" placeholder="">
+									<input type="text"  id='usertel' placeholder="">
 								</div>
 							</div>
 							
 							<div class="control-group">
 								<label for="title" class="control-label">电子邮件：</label>
 								<div class="controls">
-									<input type="text" id="title" placeholder="">
+									<input type="text" id="useremail" placeholder="">
 								</div>
 							</div>
 							
@@ -152,7 +161,7 @@
 		</div>
 		
 		<div class="modal-footer center" id="div_footer">
-			<a class="btn btn-primary" onclick="$.adminUser.save()">保存</a>
+			<a class="btn btn-primary" onclick="$.adminUser.saveUser()">保存</a>
 			<a href="#" class="btn" data-dismiss="modal" id="closeViewModal">关闭</a>
 		</div>
 	</div>

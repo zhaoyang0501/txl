@@ -1,5 +1,6 @@
 package com.pzy.action.admin;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -11,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
 import com.pzy.action.PageAction;
+import com.pzy.entity.Grades;
 import com.pzy.entity.User;
+import com.pzy.service.GradesService;
 import com.pzy.service.UserService;
 
 @Namespace("/admin/user")
@@ -21,12 +24,15 @@ public class UserAction extends PageAction {
 	private String id;
 	private User user;
 	private List<User> users;
-	
+	private List<Grades> gradess;
+	@Autowired
+	private GradesService gradesService;
 	@Autowired
 	private UserService userService;
 	@Autowired
 	@Action(value = "index", results = { @Result(name = "success", location = "/WEB-INF/views/admin/user/index.jsp") })
 	public String index() {
+		gradess=gradesService.findAllApproved();
 		return SUCCESS;
 	}
 
@@ -75,13 +81,22 @@ public class UserAction extends PageAction {
 	}
 	@Action(value = "save", results = { @Result(name = "success",  type = "json",params={"ignoreHierarchy","false"}) })  
 	public String save() {
+		user.setCreateDate(new Date());
 		userService.save(user);
 		getResultMap().put("state", "success");
 		getResultMap().put("msg", "保存成功");
 		return SUCCESS;
 	}
 	
-
+	@Action(value = "setLead", results = { @Result(name = "success",  type = "json",params={"ignoreHierarchy","false"}) })  
+	public String setLead() {
+		User newuser=userService.find(user.getId());
+		newuser.setRole("班长");
+		userService.save(newuser);
+		getResultMap().put("state", "success");
+		getResultMap().put("msg", "保存成功");
+		return SUCCESS;
+	}
 
 	public String getName() {
 		return name;
@@ -113,5 +128,13 @@ public class UserAction extends PageAction {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
+	public List<Grades> getGradess() {
+		return gradess;
+	}
+
+	public void setGradess(List<Grades> grades) {
+		this.gradess = grades;
+	}
+
 
 }

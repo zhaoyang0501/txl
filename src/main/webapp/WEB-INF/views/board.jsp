@@ -86,7 +86,7 @@
 			 <c:if test="${bean.replyfor==null}">
 			 	<li style="width: 100%">
 					<div class="comments">
-						<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
+						<div class="avatar"><img style="width: 50px" src="upload/head/${bean.user.headimg }" alt="" border="0"> </div>
 						<div class="comment-des">
 						<div class="comment-by"><strong>${bean.user.name }</strong><span class="reply"><span style="color:#aaa">/ </span><a href="board?replyfor.id=${bean.id }">回复</a></span><span class="date">${bean.createDate}</span></div>
 							<p>${bean.msg}</p>
@@ -97,7 +97,7 @@
 					  <c:forEach items="${bean.subMsg }" var="sub">
 					  <li style="width: 100%">
 						<div class="comments">
-							<div class="avatar"><img style="width: 50px" src="images/about-01.png" alt="" border="0"> </div>
+							<div class="avatar"><img style="width: 50px" src="upload/head/${sub.user.headimg }" alt="" border="0"> </div>
 							<div class="comment-des">
 							<div class="comment-by"><strong>${sub.user.name }</strong><span class="reply"><span style="color:#aaa">/  <span class="date">${bean.createDate}</span></div>
 							<p>${sub.msg}</p>

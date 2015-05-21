@@ -91,6 +91,11 @@
 		<!-- Form -->
 		<div id="contact-form">
 			<form  action="${pageContext.request.contextPath}/doCenter" enctype="multipart/form-data" method="post">
+				
+				<div class="field">
+					<label>头像:</label>
+					<img src="upload/head/${user.headimg }" style="width: 100px">
+				</div>	
 				<div class="field">
 					<label>学号:</label>
 					<input type="text" name="user.id" class="text" value="${user.id }" readonly="readonly">

@@ -23,7 +23,8 @@ response.sendRedirect("login");
 				<li><a href="contact">通讯录</a></li>
 				<li><a href="notice">活动通知</a></li>
 				<li><a href="board">留言板</a></li>
-					<li><a href="center">个人中心</a></li>
+				<li><a href="center">个人中心</a></li>
+				<li style="float: right"><a href="loginout">退出</a></li>
 			</ul>
 		</div> 
 		<div class="clear"></div>

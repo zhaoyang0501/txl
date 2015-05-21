@@ -54,6 +54,16 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	public String login() throws Exception {
 		return SUCCESS;
 	}
+	 @Action(value = "loginout", results = { @Result(name = "success", location = "/WEB-INF/views/index.jsp") })
+     public String loginout(){
+	 	ActionContext.getContext().getSession().remove("user");
+	 	ActionContext.getContext().getSession().remove("grades");
+	 	ActionContext.getContext().getSession().clear();
+		newss=newsService.findTop3();
+		gradess=gradesService.findTop4();
+	 	tip="成功退出登陆";
+	 	return SUCCESS;
+     }
 	@Action(value = "grades", results = { @Result(name = "success", location = "/WEB-INF/views/grades.jsp") })
 	public String grades() throws Exception {
 		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");

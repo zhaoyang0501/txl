@@ -95,7 +95,7 @@
 		<div class="four columns ">
 			<div class="picture"><a href="upload/${bean.filePath }" rel="image" title="Maritime Details"><img src="upload/${bean.filePath }" alt=""><div class="image-overlay-zoom" style="opacity: 0; display: block;"></div></a></div>
 			<div class="item-description alt">
-				<h5><a href="upload/${bean.filePath }">下载</a></h5>
+				<h5><a href="download?fileName=${bean.filePath }">下载</a></h5>
 				<p>上传于${bean.createDate }</p>
 			</div>
 		</div>

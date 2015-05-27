@@ -32,6 +32,27 @@ public class User implements Serializable {
 	private Date birthDay;
 	private String role;
 	private String headimg;
+	private String qq;
+	private String weixin;
+	private String work;
+	public String getWork() {
+		return work;
+	}
+	public void setWork(String work) {
+		this.work = work;
+	}
+	public String getQq() {
+		return qq;
+	}
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+	public String getWeixin() {
+		return weixin;
+	}
+	public void setWeixin(String weixin) {
+		this.weixin = weixin;
+	}
 	public String getHeadimg() {
 		return headimg;
 	}

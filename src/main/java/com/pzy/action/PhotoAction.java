@@ -36,6 +36,14 @@ public class PhotoAction extends PageAction {
 		photos=photoService.findByGrades(grades);
 		return SUCCESS;
 	}
+	@Action(value = "deletePhoto", results = { @Result(name = "success", location = "/WEB-INF/views/photo.jsp") })
+	public String deletePhoto() throws Exception {
+		photoService.delete(photo.getId());
+		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
+		photos=photoService.findByGrades(grades);
+		 tip="删除成功";
+		return SUCCESS;
+	}
 	@Action(value = "uploadPhoto", results = { @Result(name = "success", location = "/WEB-INF/views/upload_photo.jsp") })
 	public String uploadPhoto() throws Exception {
 		return SUCCESS;

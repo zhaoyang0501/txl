@@ -126,6 +126,18 @@
 					<input type="text" name="user.tel" class="text" value="${user.tel }">
 				</div>
 				<div class="field">
+					<label>QQ:</label>
+					<input type="text" name="user.qq" class="text" value="${user.qq}">
+				</div>
+				<div class="field">
+					<label>微信:</label>
+					<input type="text" name="user.weixin" class="text" value="${user.weixin }">
+				</div>
+				<div class="field">
+					<label>工作单位:</label>
+					<input type="text" name="user.work" class="text" value="${user.work }">
+				</div>
+				<div class="field">
 					<label>性别:</label>
 					<input type="text" name="user.sex" class="text" value="${user.sex }">
 				</div>

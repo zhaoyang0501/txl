@@ -18,9 +18,9 @@ import com.pzy.entity.User;
 import com.pzy.service.GradesService;
 import com.pzy.service.UserService;
 
-@Namespace("/admin/grades")
+@Namespace("/admin/gradesmanage")
 @ParentPackage("json-default") 
-public class GradesAction extends PageAction {
+public class GradesManageAction extends PageAction {
 	private String name;
 	private Long id;
 	private Grades grades;
@@ -29,7 +29,7 @@ public class GradesAction extends PageAction {
 	private GradesService gradesService;
 	@Autowired
 	private UserService userService;
-	@Action(value = "index", results = { @Result(name = "success", location = "/WEB-INF/views/admin/grades/index.jsp") })
+	@Action(value = "index", results = { @Result(name = "success", location = "/WEB-INF/views/admin/gradesmanage/index.jsp") })
 	public String index() {
 		return SUCCESS;
 	}
@@ -46,20 +46,16 @@ public class GradesAction extends PageAction {
 		return SUCCESS;
 	}
 
-	@Action(value = "approve", results = { @Result(name = "success", type = "json",params={"ignoreHierarchy","false"}) })  
-	public String approve() {
-		Grades bean = gradesService.find(id);
-		bean.setState("已审核");
-		gradesService.save(bean);
-		
-		User user=new User();
-		user.setId(bean.getApplyman());
-		user.setPassword("123456");
-		user.setRole("班长");
-		user.setGrades(bean);
-		userService.save(user);
+	@Action(value = "delete", results = { @Result(name = "success", type = "json",params={"ignoreHierarchy","false"}) })  
+	public String delete() {
 		getResultMap().put("state", "success");
-		getResultMap().put("msg", "审批成功,班长的用户名密码为"+user.getId()+","+user.getPassword());
+		getResultMap().put("msg", "删除成功");
+		try {
+			gradesService.delete(id);
+		} catch (Exception e) {
+			getResultMap().put("state", "error");
+			getResultMap().put("msg", "改班级已经有学生注册不允许删除");
+		}
 		return SUCCESS;
 	}
 

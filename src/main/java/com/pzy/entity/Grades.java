@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 @Entity
 @Table(name = "t_grades")
 public class Grades {
@@ -17,6 +18,28 @@ public class Grades {
 	private String remark;
 	private Date createDate;
 	private String state;
+	private String tel;
+	private String applyman;
+	@Transient
+	private Integer mans;
+	public Integer getMans() {
+		return mans;
+	}
+	public void setMans(Integer mans) {
+		this.mans = mans;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getApplyman() {
+		return applyman;
+	}
+	public void setApplyman(String applyman) {
+		this.applyman = applyman;
+	}
 	public Long getId() {
 		return id;
 	}

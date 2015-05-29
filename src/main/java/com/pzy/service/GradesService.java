@@ -20,11 +20,14 @@ import org.springframework.stereotype.Service;
 import com.pzy.entity.Grades;
 import com.pzy.entity.News;
 import com.pzy.repository.GradesRepository;
+import com.pzy.repository.UserRepository;
 
 @Service
 public class GradesService {
      @Autowired
      private GradesRepository gradesRepository;
+     @Autowired
+     private UserRepository userRepository;
      public List<Grades> findTop4() {
     	 PageRequest pageRequest = new PageRequest(0, 4, new Sort(Direction.DESC, "createDate"));
          Specification<Grades> spec = new Specification<Grades>() {
@@ -55,9 +58,14 @@ public class GradesService {
               }
          };
          Page<Grades> result = (Page<Grades>) gradesRepository.findAll(spec, pageRequest);
+         setMans(result.getContent());
          return result;
      	}
-     
+     private void setMans(List<Grades> gradess){
+    	 for(Grades bean:gradess){
+    		 bean.setMans(userRepository.findByGrades(bean).size());
+    	 }
+     }
      public Page<Grades> findAll(final int pageNumber, final int pageSize,final Date start,final Date end){
          PageRequest pageRequest = new PageRequest(pageNumber - 1, pageSize, new Sort(Direction.DESC, "id"));
          Specification<Grades> spec = new Specification<Grades>() {

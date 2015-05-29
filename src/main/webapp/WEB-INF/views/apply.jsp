@@ -106,6 +106,14 @@
 					<input type="text" name="grades.name" class="text">
 				</div>
 				<div class="field">
+					<label>申请人（班长）:</label>
+					<input type="text" name="grades.applyman" class="text">
+				</div>
+				<div class="field">
+					<label>申请人联系方式:</label>
+					<input type="text" name="grades.tel" class="text">
+				</div>
+				<div class="field">
 					<label>班级简介: </label>
 					<textarea name="grades.remark" class="text textarea"></textarea>
 				</div>

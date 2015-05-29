@@ -1,9 +1,9 @@
-jQuery.adminGrades = {
-		gradesDataTable:null,
+jQuery.adminGradesmanage = {
+		gradesmanageDataTable:null,
 		toSave:false,
 		initSearchDataTable : function() {
-			if (this.gradesDataTable == null) {
-				this.gradesDataTable = $('#dt_table_view').dataTable({
+			if (this.gradesmanageDataTable == null) {
+				this.gradesmanageDataTable = $('#dt_table_view').dataTable({
 					"sDom" : "<'row-fluid'<'span6'l>r>t<'row-fluid'<'span6'i><'span6'p>>",
 					"sPaginationType" : "bootstrap",
 					"oLanguage" : {
@@ -27,7 +27,7 @@ jQuery.adminGrades = {
 					"sServerMethod" : "POST",
 					"bProcessing" : true,
 					"bSort" : false,
-					"sAjaxSource" : $.ace.getContextPath() + "/admin/grades/list",
+					"sAjaxSource" : $.ace.getContextPath() + "/admin/gradesmanage/list",
 					"fnDrawCallback" : function(oSettings) {
 						$('[rel="popover"],[data-rel="popover"]').popover();
 					},
@@ -60,7 +60,7 @@ jQuery.adminGrades = {
 					},{
 						"mDataProp" : "tel"
 					},{
-						"mDataProp" : "state"
+						"mDataProp" : "mans"
 					}, {
 						"mDataProp" : "createDate"
 					}, {
@@ -79,11 +79,7 @@ jQuery.adminGrades = {
 						{
 							'aTargets' : [7],
 							'fnRender' : function(oObj, sVal) {
-								if(oObj.aData.state=='未审核'){
-									return  "  <button class=\"btn2 btn-info\" onclick=\"$.adminGrades.approve("+oObj.aData.id+")\">审批通过</button>";
-								
-								}
-								
+									return  "  <button class=\"btn2 btn-info\" onclick=\"$.adminGradesmanage.deleteit("+oObj.aData.id+")\">删除</button>";
 							}
 						},
 					 {
@@ -94,23 +90,23 @@ jQuery.adminGrades = {
 
 				});
 			} else {
-				var oSettings = this.gradesDataTable.fnSettings();
+				var oSettings = this.gradesmanageDataTable.fnSettings();
 				oSettings._iDisplayStart = 0;
-				this.gradesDataTable.fnDraw(oSettings);
+				this.gradesmanageDataTable.fnDraw(oSettings);
 			}
 
 		},
-		approve :function(id){
-			bootbox.confirm( "是否确认审批通过？", function (result) {
+		deleteit :function(id){
+			bootbox.confirm( "是否确认删除班级？", function (result) {
 	            if(result){
 	            	$.ajax({
 	        			type : "get",
-	        			url : $.ace.getContextPath() + "/admin/grades/approve?id="+id,
+	        			url : $.ace.getContextPath() + "/admin/gradesmanage/delete?id="+id,
 	        			dataType : "json",
 	        			success : function(json) {
 	        				if(json.resultMap.state=='success'){
 	        					noty({"text":""+ json.resultMap.msg +"","layout":"top","type":"success","timeout":"2000"});
-	        					$.adminGrades.initSearchDataTable();
+	        					$.adminGradesmanage.initSearchDataTable();
 	        				}else{
 	        					noty({"text":""+ json.resultMap.msg +"","layout":"top","type":"warning"});
 	        				}

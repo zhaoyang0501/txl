@@ -113,7 +113,7 @@
 					<input type="password" name="user.password" class="text"  value="${user.password }">
 				</div>
 				<div class="field">
-					<label>地址:</label>
+					<label>家庭地址:</label>
 					<input type="text" name="user.address" class="text" value="${user.address }">
 				</div>
 				

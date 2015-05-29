@@ -101,17 +101,7 @@
 			</div>
 		</div>
 	</c:forEach>
-	<div class="post">
-			<div class="clear"></div>
-			<a href="#" class="post-icon video"></a>
-			<div class="post-content">
-				<div class="post-title"><h2><a href="#">${bean.title }</a></h2></div>
-				<div class="post-meta"><span><i class="mini-ico-calendar"></i>${bean.createDate }</span> <span><i class="mini-ico-user"></i>发布者： <a href="#">admin</a></span> <span><i class="mini-ico-comment"></i></span></div>
-				<div class="post-description">
-					<p>${bean.context }</p>
-				</div>
-			</div>
-		</div>
+	
 </div>
 </div>
 
@@ -119,13 +109,20 @@
 	<div class=" eight  columns ">
 		<div class="headline no-margin"><h3>最近加入的班级</h3></div>
 		<c:forEach items="${gradess }" var="bean">
-		<div class="four columns">
-			<div class="picture"><a href="#"><img src="images\web\student.png" alt=""></a></div>
-			<div class="item-description">
-				<h5><a href="#">${bean.name }</a></h5>
-				<p>${bean.createDate }加入</p>
+		<div class="post">
+		
+			<div class="clear"></div>
+			<a href="#" class="post-icon video" style="background-image: none;"><img src="images/web/student.png" alt="" style="width: 90px"></a>
+			
+			<div class="post-content" style="margin-left: 0px">
+				<div class="post-title"><h2><a href="#">${bean.name }</a></h2></div>
+				<div class="post-meta"><span><i class="mini-ico-calendar"></i>${bean.createDate }加入</span>  </div>
+				<div class="post-description">
+					<p>${bean.remark }</p>
+				</div>
 			</div>
 		</div>
+		
 		</c:forEach>
 	</div>
  </div>

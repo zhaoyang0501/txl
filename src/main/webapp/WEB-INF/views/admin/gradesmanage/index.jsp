@@ -4,7 +4,7 @@
 <html lang="ch">
 <%@ include file="../common/meta.jsp"%>
 <head>
-<script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/ace/admin.grades.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/ace/admin.gradesmanage.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/falgun/bootbox.js"></script>
 <script src="${pageContext.request.contextPath}/admin/js/falgun/bootstrap-datetimepicker.min.js"></script>
 <script src="${pageContext.request.contextPath}/admin/js/falgun/bootstrap-datetimepicker.zh-CN.js"></script>
@@ -39,12 +39,12 @@
 					<div class="span12">
 						<div class="content-widgets light-gray">
 							<div class="widget-head  bondi-blue" >
-								<h3>班级审管理</h3>
+								<h3>班级管理</h3>
 							</div>
 							<div class="box well form-inline">
 								<span>班级名称：</span>
 								<input type="text" id="_name" >
-								<a onclick="$.adminGrades.initSearchDataTable()"
+								<a onclick="$.adminGradesmanage.initSearchDataTable()"
 									class="btn btn-info" data-loading-text="正在加载..."><i class="icon-search"></i>查询</a>
 							</div>
 							<div class="widget-container">
@@ -56,9 +56,9 @@
 											<th >班级名称</th>
 											<th >班级描述</th>
 											<th >申请人（班长）</th>
-											<th >联系方式</th>
-											<th >状态</th>
-											<th >发布时间</th>
+											<th >联系方式(QQ)</th>	
+											<th >学生数</th>
+											<th >注册时间</th>
 											<th >操作</th>
 										</tr>
 									</thead>
@@ -108,7 +108,7 @@
 		</div>
 		
 		<div class="modal-footer center" id="div_footer">
-			<a class="btn btn-primary" onclick="$.adminGrades.save()">保存</a>
+			<a class="btn btn-primary" onclick="$.adminGradesmanage.save()">保存</a>
 			<a href="#" class="btn" data-dismiss="modal" id="closeViewModal">关闭</a>
 		</div>
 	</div>

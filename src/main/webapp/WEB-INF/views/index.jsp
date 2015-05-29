@@ -74,15 +74,11 @@
 	</div>
 </div>
 <!-- 960 Container / End -->
-
-
+<div class="container">
 <!-- Content
 ================================================== -->
-<div class="container">
-	<div class="sixteen columns">
-		<!-- Headline -->
+<div class=" eight  columns">
 		<div class="headline no-margin"><h3>最新公告</h3></div>
-	</div>
 	
 	<c:if test="${tip!=null }">
 	<div class="sixteen columns">
@@ -91,7 +87,7 @@
 		</div>
 	</div>
 </c:if>
-<div class="sixteen  columns">
+<div class="">
 	<c:forEach items="${newss}" var="bean"> 
 	<div class="post">
 			<div class="clear"></div>
@@ -105,25 +101,34 @@
 			</div>
 		</div>
 	</c:forEach>
-</div>
-</div>
-
-
-<div class="container">
-	<div class="sixteen columns">
-		<!-- Headline -->
-		<div class="headline no-margin"><h3>最近加入的班级</h3></div>
-	</div>
-	<c:forEach items="${gradess }" var="bean">
-	<div class="four columns">
-		<div class="picture"><a href="#"><img src="images\web\student.png" alt=""></a></div>
-		<div class="item-description">
-			<h5><a href="#">${bean.name }</a></h5>
-			<p>${bean.createDate }加入</p>
+	<div class="post">
+			<div class="clear"></div>
+			<a href="#" class="post-icon video"></a>
+			<div class="post-content">
+				<div class="post-title"><h2><a href="#">${bean.title }</a></h2></div>
+				<div class="post-meta"><span><i class="mini-ico-calendar"></i>${bean.createDate }</span> <span><i class="mini-ico-user"></i>发布者： <a href="#">admin</a></span> <span><i class="mini-ico-comment"></i></span></div>
+				<div class="post-description">
+					<p>${bean.context }</p>
+				</div>
+			</div>
 		</div>
-	</div>
-	</c:forEach>
 </div>
+</div>
+
+
+	<div class=" eight  columns ">
+		<div class="headline no-margin"><h3>最近加入的班级</h3></div>
+		<c:forEach items="${gradess }" var="bean">
+		<div class="four columns">
+			<div class="picture"><a href="#"><img src="images\web\student.png" alt=""></a></div>
+			<div class="item-description">
+				<h5><a href="#">${bean.name }</a></h5>
+				<p>${bean.createDate }加入</p>
+			</div>
+		</div>
+		</c:forEach>
+	</div>
+ </div>
 </div>
 <!-- Wrapper / End -->
 
